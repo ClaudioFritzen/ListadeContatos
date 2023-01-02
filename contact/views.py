@@ -6,3 +6,6 @@ def index(request):
 
 def addContact(request):
     return render(request, 'new.html')
+
+def editContact(request):
+    pass

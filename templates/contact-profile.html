@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style-profile.css">
-	
-	
+{% extends 'base.html' %}
 
-    <script src="https://kit.fontawesome.com/6b20b1c14d.js" crossorigin="anonymous"></script>
-	<title>Contact Profile</title>
-</head>
-<body>
+{% load static %}
+
+{% block head %}
+
+	<link rel="stylesheet" type="text/css" href="style-profile.css">
+	{% block title %} Contact Profile {% endblock  %}
+{% endblock %}
+
+{% block content %}
 
 	<div class="container">
 		<header class="hero">
@@ -60,6 +58,4 @@
 			</section>
 		</a>
 	</div>
-
-</body>
-</html>
+{% endblock  %}
