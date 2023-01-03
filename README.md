@@ -73,3 +73,28 @@ para todos os campos iremos declarar uma variavél e
 pegaremos todos os campos.
     Na pagina html na em cada input tem um name utilizaremos esse name para pegar os dados do input
     
+    como pegar um dado enviado do formulario, utilizaremos o metodo request.POST.get(nome do input)
+    pegarNome = request.POST.get('fullname')
+    para fazer um teste e ver se esta a funcionando 
+    fazemos um print da variavel
+    print(pegarNome)
+
+    fazemos isso para todos os dados do formulário
+
+# Passo 3 Salvar no banco
+    para salvar no banco criaremos uma variavel e colocaremos como atributo a models e abriremos (    ) e dentr dele colocaremos dois paramentros para cada input, sendo o primeiro parametro é o nome dado na models do objeto, e a direita o nome da variavel recebida no request.POST....
+    exemplo completo
+
+    contato = Contact(
+            full_name = fullname,
+            relationship = relationship,
+            phone_number = phone_number,
+            address = address,
+            email = email
+        )
+    e fora do objeto daremos save em contato, nome dado a minha variavel acima
+
+    contato.save()
+
+    se tudo correr bem estará salvo no banco
+
