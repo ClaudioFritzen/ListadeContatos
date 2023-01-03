@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 
 from .models import Contact
 
@@ -8,7 +8,15 @@ def index(request):
     return render(request, "index.html", {"contatos": contatos})
 
 def addContact(request):
-    return render(request, 'new.html')
+    if request.method == 'GET':
+        return render(request, 'new.html')
+    elif request.method == 'POST':
+        fullname = request.POST.get('fullname')
+        print(fullname)
+        return HttpResponse("post")
+
+def save(request):
+    pass
 
 def editContact(request):
     pass

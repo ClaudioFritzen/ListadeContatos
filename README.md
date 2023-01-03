@@ -68,4 +68,8 @@ e quando a pessoa clicar em salvar será redirecionada
 a pagina inicial.
 
 # Passo 2 
-    bom agora queremos saber se foi
+    Vamos pegar os dados enviados ao formulário,
+para todos os campos iremos declarar uma variavél e
+pegaremos todos os campos.
+    Na pagina html na em cada input tem um name utilizaremos esse name para pegar os dados do input
+    
