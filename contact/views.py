@@ -21,9 +21,12 @@ def addContact(request):
             return HttpResponse('Erro, Nome e numero são obrigatórios')
             print([fullname, relationship,phone_number, address, email])
 
-        elif fullname < 5 or phone_number < 5:
-            return HttpResponse('Nome ou numero tem menos que 5')
+        if len(fullname.strip()) <= 5:
+            return HttpResponse('Nome precisa ter mais de 5')
         
+        if len(phone_number.strip()) <= 5:
+            return HttpResponse('Numero tem menos que 5')
+            print (type(phone_number))
         else:
             return HttpResponse('Salvo com sucesso')
             contato = Contact(
