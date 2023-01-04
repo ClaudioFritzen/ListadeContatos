@@ -17,17 +17,24 @@ def addContact(request):
         address = request.POST.get('address')
         email = request.POST.get('email')
 
+        if len(fullname.strip()) == 0 or (len(phone_number.strip()) == 0):
+            return HttpResponse('Erro, Nome e numero são obrigatórios')
+            print([fullname, relationship,phone_number, address, email])
 
-        print([fullname, relationship,phone_number, address, email])
-        contato = Contact(
-            full_name = fullname,
-            relationship = relationship,
-            phone_number = phone_number,
-            address = address,
-            email = email
-        )
-        contato.save()
-        return render(request, 'index.html')
+        elif fullname < 5 or phone_number < 5:
+            return HttpResponse('Nome ou numero tem menos que 5')
+        
+        else:
+            return HttpResponse('Salvo com sucesso')
+            contato = Contact(
+                full_name = fullname,
+                relationship = relationship,
+                phone_number = phone_number,
+                address = address,
+                email = email
+            )
+            contato.save()
+            return render(request, 'index.html')
 
 def editContact(request):
     pass
