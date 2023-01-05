@@ -1,6 +1,10 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 
 from .models import Contact
+
+# importações pra usar mensagens
+from django.contrib.messages import constants as messages
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -18,6 +22,8 @@ def addContact(request):
         email = request.POST.get('email')
 
         if len(fullname.strip()) == 0 or (len(phone_number.strip()) == 0):
+            messages.add_message(request, messages.ERROR, 'Não pode salvar vazio!')
+            return redirect(f'/add_contact')
             return HttpResponse('Erro, Nome e numero são obrigatórios')
             print([fullname, relationship,phone_number, address, email])
 
