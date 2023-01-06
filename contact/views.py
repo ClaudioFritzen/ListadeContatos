@@ -24,17 +24,18 @@ def addContact(request):
         if len(fullname.strip()) == 0 or (len(phone_number.strip()) == 0):
             messages.add_message(request, messages.ERROR, 'Não pode salvar vazio!')
             return redirect(f'/add_contact')
-            return HttpResponse('Erro, Nome e numero são obrigatórios')
-            print([fullname, relationship,phone_number, address, email])
+           
 
         if len(fullname.strip()) <= 5:
-            return HttpResponse('Nome precisa ter mais de 5')
+            messages.add_message(request, messages.ERROR, 'Nome precisa ter mais de 5 letras! ')
+            return redirect(f'/add_contact')
         
         if len(phone_number.strip()) <= 5:
-            return HttpResponse('Numero tem menos que 5')
-            print (type(phone_number))
+            messages.add_message(request, messages.ERROR, 'Numero deve possuir mais que 5' )
+            return redirect(f'/add_contact')
+
         else:
-            return HttpResponse('Salvo com sucesso')
+            
             contato = Contact(
                 full_name = fullname,
                 relationship = relationship,
@@ -43,7 +44,8 @@ def addContact(request):
                 email = email
             )
             contato.save()
-            return render(request, 'index.html')
+            messages.add_message(request, messages.SUCCESS, 'Adicionado aos contatos!')
+            return redirect(f'/')
 
 def editContact(request):
     pass
