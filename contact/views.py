@@ -47,5 +47,5 @@ def addContact(request):
             messages.add_message(request, messages.SUCCESS, 'Adicionado aos contatos!')
             return redirect(f'/')
 
-def editContact(request):
+def editContact(request, id):
     pass
