@@ -48,4 +48,5 @@ def addContact(request):
             return redirect(f'/')
 
 def editContact(request, id):
-    pass
+    pessoa = Contact.objects.get(id=id)
+    return render(request, "contact_profile.html", {'full_name': pessoa})
