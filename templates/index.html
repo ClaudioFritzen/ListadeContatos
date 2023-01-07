@@ -51,7 +51,7 @@
 						</ul>
 					{% endif %}
 					{% for contato in contatos %}
-						<a href="contact-profile.html">
+						<a href=" {% url 'edit' contato.id %}">
 							<div class="contact-section">
 								<li class="list__item">
 									
